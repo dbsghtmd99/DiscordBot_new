@@ -397,7 +397,7 @@ async def on_message(message):
             await message.channel.send(embed=embed)
         # !help Command
         elif keyword.lower() == 'help':
-            embed = discord.Embed(title='! 와 검색하고자 하는 키워드를 입력해 보세요 ',
+            embed = discord.Embed(title='!(느낌표) 와 검색하고자 하는 키워드를 입력해 보세요 ',
                                   description='39층에 나오는 어떤 문장이든 검색하면 제가 찾아 준답니다',
                                   color=0xff00ff)
             embed.set_footer(text='숨겨진 메시지도 있으니 한 번 찾아보세요')
@@ -408,18 +408,18 @@ async def on_message(message):
             await message.channel.send(embed=embed)
             for key, val in Question.items():
                 if keyword in key:
-                    embed = discord.Embed(title='키워드가 들어간 문제 발견 ! : ' + key, description=Question[key], color=0xff0000)
+                    embed = discord.Embed(title=key, description=Question[key], color=0xff0000)
                     await message.channel.send(embed=embed)
                     # await message.channel.send('----------------------------------------------')
                 if keyword in val:
                     # await message.channel.send('----------------------------------------------')
-                    embed = discord.Embed(title='키워드가 들어간 선지 발견 ! : ' + key, description=val, color=0x0000ff)
+                    embed = discord.Embed(title=key, description=val, color=0x0000ff)
                     await message.channel.send(embed=embed)
             # await message.channel.send('-------------------------------------------------------------')
             embed = discord.Embed(title='검색 완료 !!!!!!', color=0x00ff00)
             await message.channel.send(embed=embed)
 
 
-token = os.environ(["BOT_TOKEN"])
+token = os.environ([BOT_TOKEN])
 
 client.run(token)
