@@ -1,6 +1,5 @@
 import os
 import discord
-import datetime
 
 client = discord.Client()
 
@@ -303,12 +302,8 @@ async def on_message(message):
     if message.content == '혼자야':
         await message.channel.send('어 아직 싱글이야')
 
-    if message.content.startswith('사랑해'):
+    if message.content == '사랑해':
         await message.channel.send('저두요')
-
-    if '지금 몇시' in message.content:
-        now = datetime.datetime.now()
-        await message.channel.send(str(now.hour) + '시' + str(now.minute) + '분 이요')
 
     if message.content.startswith('죽고싶냐'):
         await message.channel.send('죄송해여ㅠㅠ')
@@ -338,13 +333,13 @@ async def on_message(message):
         await message.channel.send('댕~청')
 
     if '시발' in message.content:
-        await message.channel.send('왜 욕해 ㅠㅠ')
+        await message.channel.send('왜 욕해 ㅠㅠ 욕하지마 !!!!!!')
 
     if 'ㅅㅂ' in message.content:
         await message.channel.send('요카지마라 !!!!')
 
     if '새끼' in message.content:
-        await message.channel.send('요카지마 !!!!!')
+        await message.channel.send('욕하지마 !!!!!')
 
     if message.content == '혼난다':
         await message.channel.send('죄송해여 ㅠㅠ')
@@ -364,13 +359,13 @@ async def on_message(message):
     if '배고프' in message.content:
         await message.channel.send('꼬르륵............')
 
-    if '짜증' in message.content:
+    if '짜증나' in message.content:
         await message.channel.send("왜 짜증내 !!!! 짜증내지마!!")
 
-    if '자증' in message.content:
-        await message.channel.send("야 자증내지마라 !!!!")
+    if '자증나' in message.content:
+        await message.channel.send("자증내지마 !!!!")
 
-    if '잘자' in message.content:
+    if message.content == '잘자':
         await message.channel.send('너두 잘자 !!!!')
 
     if '굿나잇' in message.content:
@@ -389,10 +384,13 @@ async def on_message(message):
         await message.channel.send('신기하죠 !!!!!')
 
     if message.content == '박해빈':
-        await message.channel.send('바보멍충이')
+        await message.channel.send('박해빈 밥오')
+
+    if message.content == '해빈아':
+        await message.channel.send('야 해빈아!!!!!!!!!!!!!! 누가 니 부른다 !!!!!!!')
 
     if message.content == '혜빵댕이':
-        await message.channel.send('빵댕?')
+        await message.channel.send('빵댕빵댕?')
 
     if message.content == '김한솔':
         await message.channel.send('한솔시 안녕')
@@ -406,7 +404,7 @@ async def on_message(message):
         # !help Command
         elif keyword.lower() == 'help':
             embed = discord.Embed(title='!(느낌표) 와 검색하고자 하는 키워드를 입력해 보세요 ',
-                                  description='39층에 나오는 어떤 문장이든 검색하면 제가 찾아 준답니다',
+                                  description='39층에 나오는 어떤 문장이든 검색하면 제가 찾아준답니다',
                                   color=0xff00ff)
             embed.set_footer(text='숨겨진 메시지도 있으니 한 번 찾아보세요')
             await message.channel.send(embed=embed)
