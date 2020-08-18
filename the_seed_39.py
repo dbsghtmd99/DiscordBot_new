@@ -420,6 +420,6 @@ async def on_message(message):
             await message.channel.send(embed=embed)
 
 
-token = os.environ([BOT_TOKEN])
 
-client.run(token)
+
+client.run(os.environ['BOT_TOKEN'])
