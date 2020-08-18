@@ -1,5 +1,4 @@
 import os
-
 import discord
 import datetime
 
@@ -283,10 +282,10 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('안녕'):
+    if message.content == '안녕':
         await message.channel.send('안녕하세요 !!!!!')
 
-    if message.content.startswith('안뇽'):
+    if message.content == '안뇽':
         await message.channel.send('반가워요!!!!!!!!!!!')
 
     if message.content.startswith('하이'):
@@ -389,6 +388,15 @@ async def on_message(message):
     if '신기하다' in message.content:
         await message.channel.send('신기하죠 !!!!!')
 
+    if message.content == '박해빈':
+        await message.channel.send('바보멍충이')
+
+    if message.content == '혜빵댕이':
+        await message.channel.send('빵댕?')
+
+    if message.content == '김한솔':
+        await message.channel.send('한솔시 안녕')
+
     # calling keyword
     if message.content.startswith('!'):
         keyword = message.content[1:].strip()
@@ -421,5 +429,6 @@ async def on_message(message):
 
 
 
+token = os.environ["BOT_TOKEN"]
 
-client.run(os.environ['BOT_TOKEN'])
+client.run(token)
