@@ -115,7 +115,7 @@ Question = {
     '다음 중 메이플 스토리에 등장한 적 없는 보스 몬스터는?..': '듀나스	드래곤 라이더	@이뮤르크@	피에르',
     '다음 중 메이플 스토리에 등장한 적 없는 보스 몬스터는?...': '아우프헤벤	렉스	이리나	@베어구릴수@',
     '다음 중 메이플 스토리에 등장한 적 없는 보스 몬스터는?....': '니벨룽겐 전함	@벨제붑@	이카르트	드래고니카',
-    '다음 중 메이플 스토리에 등장한 적 없는 보스 몬스터는?': '보티첼리	반반	아니	매그너스',
+    '다음 중 메이플 스토리에 등장한 적 없는 보스 몬스터는?': '@보티첼리@	반반	아니	매그너스',
     '다음 중 메이플 스토리에 등장한 적 없는 보스 몬스터는.?.': '반반	해군함장	아카이럼	@호크아이 [문제오류]@',
     '다음 중 메이플 스토리에 등장한 적 없는 보스 몬스터는.?..': '에피네아	해군함장	아카이럼	@호크아이 [문제오류]@',
     '다음 중 메이플 스토리에 등장한 적 없는 보스 몬스터는.?...': '@칼리쉬@	마왕 발록	샤크아이	오즈',
@@ -408,6 +408,20 @@ async def on_message(message):
                                   color=0xff00ff)
             embed.set_footer(text='숨겨진 메시지도 있으니 한 번 찾아보세요')
             await message.channel.send(embed=embed)
+        
+        # if user send '!'
+        elif keyword == '':
+            embed = discord.Embed(title='도움말을 보시려면 !help 를 입력해주세요 !!!!', color=0x00ff00)
+            await message.channel.send(embed=embed)
+
+        # too many results
+        block = ['누구', '대사', '스킬', '은월', '팔라딘', '제로', '더시드', '다음', '메이플', '몬스터', '제작', '재료', '존재', '거주', '주민', '이름',
+                   '도시', '직업', '라이프', '건물', '등장', '소비', '한손무기', '핸드캐논']
+        for word in block:
+            if word in keyword:
+                embed = discord.Embed(title='검색 결과가 너무 많아요ㅠㅠ 다른 단어로 검색해주실래요 ㅎㅎ?', color=0xff69B4)
+                await message.channel.send(embed=embed)
+                
         else:
             embed = discord.Embed(title=keyword + '이(가) 들어간 문제를 찾고있어요', description='@@ 사이에 있는 단어가 정답이예요',
                                   color=0xffff00)
