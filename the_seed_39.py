@@ -272,6 +272,9 @@ Question = {
     '황금사원의 잡화 상인 이름은?': '케리	    키무	@탕따완@	다니카'
 }
 
+block = ['누구', '대사', '스킬', '은월', '팔라딘', '제로', '더시드', '다음', '메이플', '몬스터', '제작', '재료', '존재', '거주', '주민', '이름',
+         '도시', '직업', '라이프', '건물', '등장', '소비', '한손무기', '핸드캐논']
+
 
 @client.event
 async def on_ready():
@@ -408,21 +411,18 @@ async def on_message(message):
                                   color=0xff00ff)
             embed.set_footer(text='숨겨진 메시지도 있으니 한 번 찾아보세요')
             await message.channel.send(embed=embed)
-        
+
         # if user send '!'
         elif keyword == '':
             embed = discord.Embed(title='도움말을 보시려면 !help 를 입력해주세요 !!!!', color=0x00ff00)
             await message.channel.send(embed=embed)
 
         # too many results
-        block = ['누구', '대사', '스킬', '은월', '팔라딘', '제로', '더시드', '다음', '메이플', '몬스터', '제작', '재료', '존재', '거주', '주민', '이름',
-                   '도시', '직업', '라이프', '건물', '등장', '소비', '한손무기', '핸드캐논']
-        for word in block:
-            if word in keyword:
-                embed = discord.Embed(title='검색 결과가 너무 많아요ㅠㅠ 다른 단어로 검색해주실래요 ㅎㅎ?', color=0xff69B4)
-                await message.channel.send(embed=embed)
-                break
-                
+
+        elif keyword in block:
+            embed = discord.Embed(title='검색 결과가 너무 많아요ㅠㅠ 다른 단어로 검색해주실래요 ㅎㅎ?', color=0xff69B4)
+            await message.channel.send(embed=embed)
+
         else:
             embed = discord.Embed(title=keyword + '이(가) 들어간 문제를 찾고있어요', description='@@ 사이에 있는 단어가 정답이예요',
                                   color=0xffff00)
@@ -439,7 +439,6 @@ async def on_message(message):
             # await message.channel.send('-------------------------------------------------------------')
             embed = discord.Embed(title='검색 완료 !!!!!!', color=0x00ff00)
             await message.channel.send(embed=embed)
-
 
 
 token = os.environ["BOT_TOKEN"]
