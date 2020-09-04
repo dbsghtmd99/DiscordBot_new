@@ -422,22 +422,22 @@ async def on_message(message):
                 embed = discord.Embed(title='검색 결과가 너무 많아요ㅠㅠ 다른 단어로 검색해주실래요 ㅎㅎ?', color=0xff69B4)
                 await message.channel.send(embed=embed)
                 
-        else:
-            embed = discord.Embed(title=keyword + '이(가) 들어간 문제를 찾고있어요', description='@@ 사이에 있는 단어가 정답이예요',
-                                  color=0xffff00)
-            await message.channel.send(embed=embed)
-            for key, val in Question.items():
-                if keyword in key:
-                    embed = discord.Embed(title=key, description=Question[key], color=0xff0000)
-                    await message.channel.send(embed=embed)
-                    # await message.channel.send('----------------------------------------------')
-                if keyword in val:
-                    # await message.channel.send('----------------------------------------------')
-                    embed = discord.Embed(title=key, description=val, color=0x0000ff)
-                    await message.channel.send(embed=embed)
-            # await message.channel.send('-------------------------------------------------------------')
-            embed = discord.Embed(title='검색 완료 !!!!!!', color=0x00ff00)
-            await message.channel.send(embed=embed)
+            else:
+                embed = discord.Embed(title=keyword + '이(가) 들어간 문제를 찾고있어요', description='@@ 사이에 있는 단어가 정답이예요',
+                                      color=0xffff00)
+                await message.channel.send(embed=embed)
+                for key, val in Question.items():
+                    if keyword in key:
+                        embed = discord.Embed(title=key, description=Question[key], color=0xff0000)
+                        await message.channel.send(embed=embed)
+                        # await message.channel.send('----------------------------------------------')
+                    if keyword in val:
+                        # await message.channel.send('----------------------------------------------')
+                        embed = discord.Embed(title=key, description=val, color=0x0000ff)
+                        await message.channel.send(embed=embed)
+                # await message.channel.send('-------------------------------------------------------------')
+                embed = discord.Embed(title='검색 완료 !!!!!!', color=0x00ff00)
+                await message.channel.send(embed=embed)
 
 
 
