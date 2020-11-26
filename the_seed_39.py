@@ -305,9 +305,6 @@ async def on_message(message):
     if message.content == '아니 너 말고':
         await message.channel.send('네 ㅈㅅ여')
 
-    if message.content == '혼자야':
-        await message.channel.send('어 아직 싱글이야')
-
     if message.content == '사랑해':
         await message.channel.send('저두요')
 
@@ -377,9 +374,6 @@ async def on_message(message):
     if '굿나잇' in message.content:
         await message.channel.send('굿밤 !!!!')
 
-    if message.content == '헉헉':
-        await message.channel.send('헉헉대지마 !!!!!!!!!!')
-
     if '신기해' in message.content:
         await message.channel.send('신기하죠 !!!!!')
 
@@ -388,15 +382,6 @@ async def on_message(message):
 
     if '신기하다' in message.content:
         await message.channel.send('신기하죠 !!!!!')
-
-    if message.content == '박해빈':
-        await message.channel.send('박해빈 밥오')
-
-    if message.content == '해빈아':
-        await message.channel.send('야 해빈아!!!!!!!!!!!!!! 누가 니 부른다 !!!!!!!')
-
-    if message.content == '혜빵댕이':
-        await message.channel.send('빵댕')
 
     # calling keyword
     if message.content.startswith('!'):
